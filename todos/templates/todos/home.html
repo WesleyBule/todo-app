@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+Home
+{% endblock 'title' %}
+
+{% block 'body' %}
+    <h1>📝 Lista de Tarefas</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Created</th>
+          <th>DeadLine</th>
+          <th>Completed</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for todo in todos %}
+            <tr>
+                <td> {{ todo.pk }} </td>
+                <td> {{ todo.title }} </td>
+                <td> {{ todo.created }} </td>
+                <td> {{ todo.deadline }} </td>
+                <td> {{ todo.completed }} </td>
+                <td>
+                    <a href="#" class="btn btn-edit">Edit</a>
+                    <a href="#" class="btn btn-delete">Delete</a>
+                    <a href="#" class="btn btn-done">Complete</a>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="#" class="add-btn">➕ Adicionar Nova Tarefa</a>
+  </div>
+{% endblock 'body' %}
+

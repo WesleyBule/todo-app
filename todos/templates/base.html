@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/todos/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block 'title' %} {% endblock 'title' %} </title>
+</head>
+<body>
+    <style>
+        body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #1e1e2f;
+        color: #e0e0e0;
+        }
+
+        .task-container {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #2c2c3a;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        padding: 25px 30px;
+        }
+
+        h1 {
+        text-align: center;
+        color: #4a90e2;
+        margin-bottom: 25px;
+        }
+
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 10px;
+        }
+
+        thead {
+        background: #4a90e2;
+        color: white;
+        }
+
+        th, td {
+        padding: 12px 15px;
+        text-align: left;
+        }
+
+        tbody tr {
+        border-bottom: 1px solid #444;
+        transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+        background: #3a3a4a;
+        }
+
+        .actions {
+        text-align: center;
+        }
+
+        .btn {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        font-size: 13px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        margin: 0 3px;
+        transition: 0.2s;
+        }
+
+        .btn-edit { background: #f1c40f; color: #1e1e2f; }
+        .btn-edit:hover { background: #d4ac0d; }
+
+        .btn-delete { background: #e74c3c; }
+        .btn-delete:hover { background: #c0392b; }
+
+        .btn-done { background: #2ecc71; }
+        .btn-done:hover { background: #27ae60; }
+
+        .add-btn {
+        display: block;
+        width: fit-content;
+        margin: 25px auto 0;
+        background: #4a90e2;
+        color: white;
+        padding: 10px 22px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.2s;
+        }
+
+        .add-btn:hover {
+        background: #357ab7;
+        }
+
+    </style>
+    {% block 'body' %}
+
+    {% endblock 'body' %}
+</body>
+</html>
