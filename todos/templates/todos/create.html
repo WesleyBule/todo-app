@@ -11,7 +11,7 @@ Create
             <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="card shadow-sm p-4">
-                <h3 class="text-center mb-4">Nova Tarefa</h3>
+                <h3 class="text-center mb-4">New Task</h3>
 
                 <form method="post">
                     {% csrf_token %}
@@ -29,7 +29,7 @@ Create
                     {% endif %}
 
                     <div class="mb-3">
-                    <label for="{{ form.title.label }}" class="form-label">Título</label>
+                    <label for="{{ form.title.label }}" class="form-label">Title</label>
                     {{ form.title|add_class:"form-control" }}
                     </div>
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block 'title' %}
 Home
 {% endblock 'title' %}
@@ -25,11 +25,23 @@ Home
                 <td> {{ todo.title }} </td>
                 <td> {{ todo.created }} </td>
                 <td> {{ todo.deadline }} </td>
-                <td> {{ todo.completed }} </td>
                 <td>
-                    <a href="#" class="btn btn-edit">Edit</a>
-                    <a href="#" class="btn btn-delete">Delete</a>
-                    <a href="#" class="btn btn-done">Complete</a>
+                  {% if todo.completed %}
+                      <img src="{% static 'todos/checkbox.png' %}" alt="" width="20" height="20">
+                  {% else %}
+                      <img src="{% static 'todos/unchecked.png' %}" alt="" width="20" height="20">
+                  {% endif %}
+                </td>
+                <td>
+
+                    {% if todo.completed == False %}
+                      <a href="#" class="btn btn-edit">Edit</a>
+                      <a href="{% url 'todoDelete' todo.id %}" class="btn btn-delete">Delete</a>
+                      <a href="{% url 'todoComplete' todo.id %}" class="btn btn-done">Complete</a>
+                    {% else %}
+                      <a href="#" class="btn btn-delete">Delete</a>
+                      <a href="{% url 'todoComplete' todo.id %}" class="btn btn-outline-primary">Undo</a>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
