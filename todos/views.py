@@ -1,5 +1,17 @@
 from django.shortcuts import render , redirect
 from .models import Todo
+from datetime import datetime
+from .forms import UserRegisterForm , TodoRegisterForm
+
+def user_register(request):
+    form = UserRegisterForm()
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request , 'todos/register.html' , context ) 
+
 
 
 def todo_list(request):
@@ -8,18 +20,12 @@ def todo_list(request):
     return render(request,template_name ,{'todos':todos})
 
 def todo_create(request):
+    form = TodoRegisterForm()
     template_name = 'todos/create.html'
     if request.method == "POST":
-        title = request.POST.get('title')
-        created = request.POST.get('created')
-        deadline = request.POST.get('deadline')
-        completed = request.POST.get('completed')
-
-        Todo.objects.create(
-            title=title,
-            created = created,
-            deadline = deadline,
-            completed = completed
-        )
-        return redirect('todoList')
-    return render(request,template_name)
+        form = TodoRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('todoList')
+    context = {'form':form}
+    return render(request,template_name ,context)
