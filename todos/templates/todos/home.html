@@ -7,7 +7,7 @@ Home
 {% block 'body' %}
     <h1>📝 Todo List</h1>
 
-    <table>
+    <table class="container">
       <thead>
         <tr>
           <th>#</th>
@@ -39,7 +39,7 @@ Home
                       <a href="{% url 'todoDelete' todo.id %}" class="btn btn-delete">Delete</a>
                       <a href="{% url 'todoComplete' todo.id %}" class="btn btn-done">Complete</a>
                     {% else %}
-                      <a href="#" class="btn btn-delete">Delete</a>
+                      <a href="{% url 'todoDelete' todo.id %}" class="btn btn-delete">Delete</a>
                       <a href="{% url 'todoComplete' todo.id %}" class="btn btn-outline-primary">Undo</a>
                     {% endif %}
                 </td>
