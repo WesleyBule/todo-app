@@ -52,3 +52,5 @@ def todo_delete(request , id):
     todo = Todo.objects.get(id=id)
     todo.delete()
     return redirect('todoList')
+
+
