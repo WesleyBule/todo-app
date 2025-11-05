@@ -23,3 +23,15 @@ class TodoRegisterForm(forms.ModelForm):
         widgets = {
             'deadline': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
         }
+
+
+class TodoEditForm(forms.ModelForm):
+    class Meta:
+        model = Todo
+        fields = [
+            'title',
+            'deadline',
+        ]
+        widgets = {
+            'deadline': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        }

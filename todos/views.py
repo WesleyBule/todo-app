@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from .models import Todo
 from datetime import datetime
-from .forms import UserRegisterForm , TodoRegisterForm
+from .forms import UserRegisterForm , TodoRegisterForm ,TodoEditForm
 from django.http import JsonResponse
 
 
@@ -29,6 +29,18 @@ def todo_create(request):
             return redirect('todoList')
     context = {'form':form}
     return render(request,template_name ,context)
+
+
+def todo_edit(request , id):
+    todo = Todo.objects.get(id=id)
+    if request.method == "POST":
+        form = TodoEditForm(request.POST , instance=todo)
+        if form.is_valid():
+            form.save()
+            return redirect("todoList")
+    form = TodoEditForm(request.POST , instance=todo)
+    return render(request , "todos/edit.html", {"form":form})
+
 
 def todo_complete(request , id):
     todo = Todo.objects.get(id=id)

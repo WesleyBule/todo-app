@@ -10,7 +10,6 @@ Home
     <table class="container">
       <thead>
         <tr>
-          <th>#</th>
           <th>Title</th>
           <th>Created</th>
           <th>DeadLine</th>
@@ -21,7 +20,6 @@ Home
       <tbody>
         {% for todo in todos %}
             <tr>
-                <td> {{ todo.pk }} </td>
                 <td> {{ todo.title }} </td>
                 <td> {{ todo.created }} </td>
                 <td> {{ todo.deadline }} </td>
@@ -35,7 +33,7 @@ Home
                 <td>
 
                     {% if todo.completed == False %}
-                      <a href="#" class="btn btn-edit">Edit</a>
+                      <a href="{% url 'todoEdit' todo.id %}" class="btn btn-edit">Edit</a>
                       <a href="{% url 'todoDelete' todo.id %}" class="btn btn-delete">Delete</a>
                       <a href="{% url 'todoComplete' todo.id %}" class="btn btn-done">Complete</a>
                     {% else %}

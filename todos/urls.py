@@ -6,4 +6,5 @@ urlpatterns = [
     path('register/',views.user_register , name='userRegister'),
     path('complete/<int:id>/', views.todo_complete, name='todoComplete'),
     path('delete/<int:id>/', views.todo_delete, name='todoDelete'),
+    path('edit/<int:id>',views.todo_edit , name="todoEdit"),
 ]
